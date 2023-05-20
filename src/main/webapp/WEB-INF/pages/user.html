@@ -13,9 +13,10 @@
     <a th:text="${us.getSurname()}" ></a>
     <a th:text="${us.getAge()}"     ></a>
     <a th:href="@{/user/{id}/edit(id=${us.getId()})}"><input type="submit" value="Uptate" /></a>
-    <form th:method="delete" th:action="@{/user/{id}(id=${us.getId()})}">
-        <input type="submit" value="Delete"/>
-    </form>
+    <a th:href="@{/user/delete/{id}(id=${us.getId()})}"><input type="submit" value="Delete" /></a>
+<!--    <form th:method="delete" th:action="@{/user/{id}(id=${us.getId()})}">-->
+<!--        <input type="submit" value="Delete"/>-->
+<!--    </form>-->
 
 </div>
 <div>

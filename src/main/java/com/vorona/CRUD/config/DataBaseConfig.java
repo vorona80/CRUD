@@ -1,6 +1,6 @@
 package com.vorona.CRUD.config;
 
-import jakarta.annotation.Resource;
+//import jakarta.annotation.Resource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 @EnableWebMvc
 public class DataBaseConfig {
-    @Resource
+//    @Resource
     private final Environment env;
     @Autowired
     public DataBaseConfig(Environment env) {
