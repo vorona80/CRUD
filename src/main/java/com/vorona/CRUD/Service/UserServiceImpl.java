@@ -25,15 +25,15 @@ public class UserServiceImpl implements UserService {
     public void save (User user) {
         userDao.save(user);
     }
-    public User show (int id) {
+    public User show (long id) {
         return userDao.show(id);
     }
     @Transactional
-    public void update(int id, User updareUser) {
+    public void update(long id, User updareUser) {
         userDao.update(id,updareUser);
     }
     @Transactional
-    public void delete(int id) {
+    public void delete(long id) {
         userDao.delete(id);
     }
 }

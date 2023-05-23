@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserDao {
     public List<User> getUser(/*int count*/) throws SQLException;
     public void save (User user);
-    public User show (int id);
-    public void update(int id, User updareUser);
-    public void delete(int id);
+    public User show (long id);
+    public void update(long id, User updareUser);
+    public void delete(long id);
 }

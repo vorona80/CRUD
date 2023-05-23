@@ -17,10 +17,10 @@ public class UserDaoImpl implements UserDao {
         this.entityManager = entityManager;
     }
 
-    public List<User> getUser(/*int count*/) {
+    public List<User> getUser() {
         return entityManager.createQuery("select user from User user", User.class).getResultList();
     }
-    public User show(int id) {
+    public User show(long id) {
         TypedQuery<User> typedQuery = entityManager.createQuery("select user from User user where user.id = :id",User.class);
         typedQuery.setParameter("id",id);
         return typedQuery.getResultList().stream().findAny().orElse(null);
@@ -29,14 +29,15 @@ public class UserDaoImpl implements UserDao {
     public void save(User user) {
         entityManager.persist(user);
     }
-    public void update(int id, User updareUser) {
-        User updateToUser = entityManager.getReference(User.class,id);
-        updateToUser.setName(updareUser.getName());
-        updateToUser.setSurname(updareUser.getSurname());
-        updateToUser.setAge(updareUser.getAge());
-        entityManager.merge(updateToUser);
+    public void update(long id, User updareUser) {
+        entityManager.merge(updareUser);
+//        User updateToUser = entityManager.getReference(User.class,id);
+//        updateToUser.setName(updareUser.getName());
+//        updateToUser.setSurname(updareUser.getSurname());
+//        updateToUser.setAge(updareUser.getAge());
+//        entityManager.merge(updateToUser);
     }
-    public void delete(int id) {
+    public void delete(long id) {
         entityManager.remove(entityManager.getReference(User.class,id));
     }
 }
